@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/page_home"
+           android:enabled="true"
+            android:icon="@drawable/ic_principal"
+            android:title="@string/menuOpPrincipalString"
+            />
+        <item android:id="@+id/page_pedidos"
+            android:enabled="true"
+            android:icon="@drawable/ic_pedidos"
+            android:title="@string/menuOpPedidosString"
+            />
+        <item android:id="@+id/page_conta"
+            android:enabled="true"
+            android:icon="@drawable/ic_conta"
+
+            android:title="@string/menuOpContaString"
+            />
+
+</menu>
