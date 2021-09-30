@@ -3,15 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/DOCUMENTO/AndroidStudioProjects/IBurger/app/src/main/res/layout/activity_cadastro.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/DOCUMENTO/AndroidStudioProjects/IBurger/app/src/main/res/layout/activity_login.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/DOCUMENTO/AndroidStudioProjects/IBurger/app/src/main/res/layout/activity_pedido.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/DOCUMENTO/AndroidStudioProjects/IBurger/app/src/main/res/layout/activity_principal.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/DOCUMENTO/AndroidStudioProjects/IBurger/app/src/main/res/layout/fragment_conta.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/DOCUMENTO/AndroidStudioProjects/IBurger/app/src/main/res/layout/fragment_pedidos.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/DOCUMENTO/AndroidStudioProjects/IBurger/app/src/main/res/layout/fragment_principal.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/activity_cadastro.xml" value="0.25" />
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/activity_loja.xml" value="0.2247863247863248" />
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/activity_main.xml" value="0.2078125" />
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/activity_principal.xml" value="0.22" />
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/bottom_navigation_menu.xml" value="0.35625" />
@@ -19,6 +13,8 @@
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/fragment_pedidos.xml" value="0.2421875" />
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/layout/fragment_principal.xml" value="0.14" />
         <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.35625" />
+        <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.23803418803418802" />
+        <entry key="..\:/Users/Pichau/AndroidStudioProjects/IBurguer/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.23803418803418802" />
       </map>
     </option>
   </component>
@@ -31,7 +27,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.67" />
+        <option name="scale" value="0.2247863247863248" />
       </ProjectState>
     </option>
   </component>
