@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "983534982159",
+    "project_id": "i-burguer",
+    "storage_bucket": "i-burguer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983534982159:android:451e7c5fe191836b337f7a",
+        "android_client_info": {
+          "package_name": "com.example.iburguer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983534982159-71ukq35ng1lvuskogb0h6cgbbtd81k50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXOptIHeys4H9NDTYiDXhIolvFd_Bomyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983534982159-71ukq35ng1lvuskogb0h6cgbbtd81k50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
