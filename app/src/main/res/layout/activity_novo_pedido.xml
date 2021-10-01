@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:background="@color/branco"
+
+                android:src="@drawable/ic_flecha_voltar"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lblpedidostring"
+                android:fontFamily="@font/roboto_negrito"
+                android:textSize="26sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="24dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lblprodutosstring"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto"
+                android:textColor="@color/black"
+                android:layout_marginStart="24dp"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:ignore="ScrollViewSize,UselessLeaf">
+
+            </LinearLayout>
+
+        </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center">
+            <Button
+                android:layout_width="360dp"
+                android:layout_height="60dp"
+                android:text="@string/btnadditensstring"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto_negrito"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lblvalortotstring"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:layout_marginStart="24dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 15,00"
+                android:textSize="30sp"
+                android:textColor="@color/vermelhoBack"
+                android:fontFamily="@font/roboto"
+                android:layout_marginStart="24dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lblentregastring"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:layout_marginStart="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="5dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/ic_localizacao"
+                    tools:ignore="ContentDescription,HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/indicadorEnderecoAtualString"
+                    android:textColor="@color/cinzafont"
+                    android:textSize="18sp" />
+
+                <TextView
+
+                    android:layout_width="180dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="3dp"
+
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto"
+                    android:singleLine="true"
+                    android:text="dsdsfkjsdlfsjfsdlfjsdlfjsdlfjsdldjfsdlfjdsldjsljfsdjldlj"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/branco"
+                    android:src="@drawable/ic_mais_opc_endereco"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lblpagamentostring"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto"
+                android:layout_marginStart="24dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="310dp"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/ic_dinheiro"
+                    tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
+
+                <TextView
+                    android:layout_marginStart="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/lbldinheirostring"
+                    android:textColor="@color/cinzafont"
+                    android:textSize="18sp" />
+
+
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/ic_cartao_credito"
+                    tools:ignore="ContentDescription,HardcodedText" />
+
+                <TextView
+                    android:layout_marginStart="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/lblcartaostring"
+                    android:textColor="@color/cinzafont"
+                    android:textSize="18sp" />
+
+
+
+
+
+
+            </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+                <RadioGroup
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="UselessParent">
+
+                    <RadioButton
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </RadioGroup>
+            </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/branco"
+                android:text="@string/btnconfirmapedido"
+                android:textColor="@color/vermelhoBack"
+                android:fontFamily="@font/roboto_negrito"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

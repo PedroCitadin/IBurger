@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".CadastroActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".LojaActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

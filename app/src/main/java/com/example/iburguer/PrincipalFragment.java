@@ -1,15 +1,18 @@
 package com.example.iburguer;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -66,6 +69,29 @@ public class PrincipalFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Handler handler = new Handler();
+
+        new Thread() {
+            public void run() {
+
+
+                handler.post(new Runnable() {
+                    public void run() {
+                        Button testeLoja = (Button) getActivity().findViewById(R.id.lojateste);
+                        testeLoja.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                startActivity(new Intent(getActivity(), LojaActivity.class));
+                            }
+                        });
+                    }
+                });
+
+            }
+
+        }.start();
+
+
 
 
         }

@@ -55,6 +55,15 @@
     <string name="lbldescdadosacesso">Senha de acesso à conta</string>
     <string name="lbldadosentrega">Dados de entrega</string>
     <string name="lbldescdadosentrega">Seus endereços de entrega</string>
-
-
+    <!-- - -->
+    <!--  Activity Novos pedidos    -->
+    <string name="lblpedidostring">Pedido</string>
+    <string name="lblprodutosstring">Produtos:</string>
+    <string name="btnadditensstring">Adicionar mais itens desta loja</string>
+    <string name="lblvalortotstring">Valor total:</string>
+    <string name="lblentregastring">Entrega:</string>
+    <string name="lblpagamentostring">Pagamento:</string>
+    <string name="lbldinheirostring">Pagar com dinheiro</string>
+    <string name="lblcartaostring">Pagar com cartão</string>
+    <string name="btnconfirmapedido">CONFIRMAR PEDIDO</string>
 </resources>
