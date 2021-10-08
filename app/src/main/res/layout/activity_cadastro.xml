@@ -46,11 +46,14 @@
             app:layout_constraintTop_toTopOf="parent"
             />
         <EditText
+            android:id="@+id/editNomeCompleto"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:inputType="text"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintNome"
+            android:textColorHint="@color/cinza"
+            android:textColor="@color/black"
             android:layout_marginTop="2dp"
             />
         <TextView
@@ -69,11 +72,14 @@
             app:layout_constraintTop_toTopOf="parent"
             />
         <EditText
+            android:id="@+id/editCPF"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:inputType="text"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintCpf"
+            android:textColorHint="@color/cinza"
+            android:textColor="@color/black"
             android:layout_marginTop="2dp"
             />
         <TextView
@@ -92,11 +98,14 @@
             app:layout_constraintTop_toTopOf="parent"
             />
         <EditText
+            android:id="@+id/editEmail"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:inputType="text"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintEmail"
+            android:textColorHint="@color/cinza"
+            android:textColor="@color/black"
             android:layout_marginTop="2dp"
             />
         <TextView
@@ -115,11 +124,14 @@
             app:layout_constraintTop_toTopOf="parent"
             />
         <EditText
+            android:id="@+id/editTelefone"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:inputType="text"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintTelefone"
+            android:textColorHint="@color/cinza"
+            android:textColor="@color/black"
             android:layout_marginTop="2dp"
             />
         <TextView
@@ -137,14 +149,18 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+
         <EditText
+            android:id="@+id/editSenha"
             android:layout_width="300dp"
             android:layout_height="48dp"
-            android:inputType="textPassword"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintSenha"
-            android:layout_marginTop="2dp"
-            />
+            android:textColorHint="@color/cinza"
+            android:inputType="textPassword"
+            android:textColor="@color/black" />
+
         <TextView
             android:fontFamily="@font/roboto"
             android:layout_marginStart="35dp"
@@ -161,11 +177,14 @@
             app:layout_constraintTop_toTopOf="parent"
             />
         <EditText
+            android:id="@+id/editConfirmarSenha"
             android:layout_width="300dp"
             android:layout_height="48dp"
             android:inputType="textPassword"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintConfirmaSenhaString"
+            android:textColorHint="@color/cinza"
+            android:textColor="@color/black"
             android:layout_marginTop="2dp"
             />
         <Button
@@ -173,7 +192,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
-
+            android:id="@+id/btnFinalizarCadastro"
             android:backgroundTint="@color/vermelhoBack"
             android:text="@string/btnFinalizarString"/>
         <Button

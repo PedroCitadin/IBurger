@@ -60,6 +60,8 @@
             android:inputType="text"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintUsuario"
+            android:textColorHint="@color/cinza"
+            android:textColor="@color/black"
             android:importantForAutofill="no" />
         <TextView
             android:fontFamily="@font/roboto"
@@ -84,6 +86,8 @@
             android:layout_marginTop="4dp"
 
             android:hint="@string/hintSenha"
+            android:textColorHint="@color/cinza"
+            android:textColor="@color/black"
             android:importantForAutofill="no"/>
         <Button
             android:fontFamily="@font/roboto"
