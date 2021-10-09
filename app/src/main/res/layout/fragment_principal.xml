@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/white"
 
     tools:context=".PrincipalFragment">
 
@@ -15,15 +15,36 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/boasVindasHeader"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+            <TextView
+                android:id="@+id/textUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nomeUsuarioLogado"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="70dp"
             android:gravity="center_vertical"
+            android:paddingHorizontal="15dp"
             android:orientation="horizontal">
 
             <ImageView
 
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="25dp"
                 android:contentDescription="TODO"
                 android:src="@drawable/ic_localizacao"
                 tools:ignore="ContentDescription,HardcodedText" />
@@ -51,9 +72,8 @@
                 tools:ignore="HardcodedText" />
 
             <ImageButton
-                android:layout_width="48dp"
+                android:layout_width="24dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="5dp"
                 android:background="@color/branco"
                 android:src="@drawable/ic_mais_opc_endereco"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
@@ -63,6 +83,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:orientation="vertical"
 
             >
@@ -70,7 +92,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/roboto_negrito"
                 android:text="@string/lblLojasString"
@@ -80,7 +101,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto"
                 android:text="@string/lblOrdenarporString"
@@ -92,7 +112,7 @@
         <HorizontalScrollView
 
             android:layout_width="match_parent"
-            android:layout_height="80dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -162,7 +182,7 @@
             <LinearLayout
                 android:id="@+id/llteste"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
 
