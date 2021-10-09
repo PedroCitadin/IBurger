@@ -10,12 +10,17 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private BottomNavigationView menu_navegacao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        menu_navegacao = findViewById(R.id.menu_navegacao);
+
+        //Bundle extras = getIntent().getExtras();
+        //TextView textUserName = findViewById(R.id.textUserName);
+        //textUserName.setText(extras.getString("user"));
+
+        BottomNavigationView menu_navegacao = findViewById(R.id.menu_navegacao);
         menu_navegacao.setOnNavigationItemSelectedListener(bottomNavMethod);
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new PrincipalFragment()).commit();
     }
