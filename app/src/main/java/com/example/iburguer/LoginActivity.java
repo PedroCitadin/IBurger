@@ -28,10 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){ // checa se o usuário atual está logado
-            // alguma ação (reload)
-            currentUser.reload();
-        }
+        checkIfUserIsLoggedIn(currentUser);
 
         Button btnCadastro = findViewById(R.id.btnCadastrar);
         btnCadastro.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, CadastroActivity.class)));
@@ -59,10 +56,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     Log.d(TAG, "signInWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
+                    checkIfUserIsLoggedIn(user);
 
                     // Passando o user para a outra tela: https://stackoverflow.com/questions/4999991/what-is-a-bundle-in-an-android-application
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("user", user.getDisplayName());
+                    intent.putExtra("user", " " + user.getEmail());
                     //updateUI(user);
                     startActivity(intent);
                 } else {
@@ -73,5 +71,11 @@ public class LoginActivity extends AppCompatActivity {
                     //updateUI(null);
                 }
             });
+    }
+
+    private void checkIfUserIsLoggedIn(FirebaseUser currentUser){
+        if(currentUser != null){
+            currentUser.reload();
+        }
     }
 }

@@ -28,8 +28,7 @@
     <string name="btnCancelarString">Cancelar</string>
     <!-- - -->
     <!--  TELA Principal    -->
-    <string name="boasVindasHeader">Olá, </string>
-    <string name="nomeUsuarioLogado"> </string>
+    <string name="boasVindasHeader">Olá,</string>
     <string name="menuOpPrincipalString">Principal</string>
     <string name="menuOpPedidosString">Pedidos</string>
     <string name="menuOpContaString">Conta</string>
