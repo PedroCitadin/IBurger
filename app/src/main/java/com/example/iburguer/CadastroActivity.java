@@ -59,15 +59,11 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     private boolean isSenhasValidas(String senha, String confirmarSenha){
-        if(senha == null || confirmarSenha == null){
+        if(senha.isEmpty() || confirmarSenha.isEmpty()){
             Toast.makeText(CadastroActivity.this, "As duas senhas devem ser informadas", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if(senha == "" || confirmarSenha == ""){
-            Toast.makeText(CadastroActivity.this, "As duas senhas devem ser informadas", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if(senha != confirmarSenha){
+        else if(!senha.equals(confirmarSenha)){
             Toast.makeText(CadastroActivity.this, "As senhas informadas são diferentes!", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -82,16 +78,15 @@ public class CadastroActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
+                            Toast.makeText(CadastroActivity.this, "Conta criada com sucesso!",
+                                    Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             //updateUI(user) ATUALIZAR TELA;
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(CadastroActivity.this, "Authentication failed.",
+                            Toast.makeText(CadastroActivity.this, "Authentication failed: " + task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();
-
-                            //updateUI(null) ATUALIZAR TELA;
                         }
                     }
                 });
