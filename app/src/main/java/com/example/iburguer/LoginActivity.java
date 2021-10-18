@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.iburguer.utils.InputUtil;
+import com.example.iburguer.utils.Shared;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d(TAG, "signInWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     checkIfUserIsLoggedIn(user);
-
+                    Shared.put(LoginActivity.this, Shared.KEY_NOME_USUARIO, user.getEmail());
                     // Passando o user para a outra tela: https://stackoverflow.com/questions/4999991/what-is-a-bundle-in-an-android-application
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("user", " " + user.getEmail());

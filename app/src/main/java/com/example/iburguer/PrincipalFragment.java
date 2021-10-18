@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.iburguer.utils.Shared;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -99,11 +101,12 @@ public class PrincipalFragment extends Fragment {
             Bundle savedInstanceState){
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_principal, container, false);
-
-        TextView textUserName = view.findViewById(R.id.textUserName);
-        //Bundle extras = getIntent().getExtras();
-        textUserName.setText(extras.getString("user"));
-
+        setNomeUsuarioLogado(view);
         return view;
+    }
+
+    private void setNomeUsuarioLogado(View view) {
+        TextView textUserName = view.findViewById(R.id.textUserName);
+        textUserName.setText(Shared.getString(getActivity(), Shared.KEY_NOME_USUARIO));
     }
 }

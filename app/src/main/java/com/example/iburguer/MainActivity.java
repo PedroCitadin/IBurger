@@ -1,6 +1,8 @@
 package com.example.iburguer;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +26,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        Bundle extras = getIntent().getExtras();
-
         BottomNavigationView menu_navegacao = findViewById(R.id.menu_navegacao);
         menu_navegacao.setOnNavigationItemSelectedListener(bottomNavMethod);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new PrincipalFragment(extras)).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new PrincipalFragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -50,4 +50,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    private void storeUserData(Bundle extras){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("NOME_USUARIO", extras.getString("user"));
+        editor.apply();
+    }
 }
