@@ -9,7 +9,7 @@
     tools:context=".LoginActivity">
     <LinearLayout
         android:layout_width="370dp"
-        android:layout_height="493dp"
+        android:layout_height="513dp"
         android:background="@color/branco"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -100,6 +100,11 @@
             android:textColor="@color/white"
             android:backgroundTint="@color/vermelhoBack"
             android:text="@string/btnEntrarString"/>
+        <CheckBox
+            android:id="@+id/ckbManter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mantenha-me conectado"/>
         <TextView
             android:fontFamily="@font/roboto_negrito"
             android:layout_marginTop="25dp"
