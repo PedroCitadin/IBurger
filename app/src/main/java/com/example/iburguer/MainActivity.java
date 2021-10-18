@@ -16,7 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Bundle extras;
     private FrameLayout frameLayout;
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        Bundle extras = getIntent().getExtras();
+        extras = getIntent().getExtras();
 
         BottomNavigationView menu_navegacao = findViewById(R.id.menu_navegacao);
         menu_navegacao.setOnNavigationItemSelectedListener(bottomNavMethod);
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             Fragment frag = null;
             switch (item.getItemId()){
                 case R.id.page_home:
-                    frag = new PrincipalFragment();
+                    frag = new PrincipalFragment(extras);
                 break;
                 case R.id.page_pedidos:
                     frag = new PedidosFragment();
