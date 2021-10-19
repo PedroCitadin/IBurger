@@ -1,155 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/vermelhoBack"
+    android:gravity="center"
     tools:context=".LoginActivity">
-    <LinearLayout
-        android:layout_width="370dp"
-        android:layout_height="513dp"
-        android:background="@color/branco"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
-        <ImageView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/descLogo" />
 
-        <TextView
-
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/roboto_negrito"
-            android:text="@string/frase1"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:background="@color/branco"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:fontFamily="@font/roboto"
-            android:layout_marginStart="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/lUsuario"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <EditText
-            android:id="@+id/editLoginEmail"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:inputType="textEmailAddress"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/hintUsuario"
-            android:textColorHint="@color/cinza"
-            android:textColor="@color/black"
-            android:importantForAutofill="no" />
-        <TextView
-            android:fontFamily="@font/roboto"
-            android:layout_marginStart="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/lSenha"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
-        <EditText
-            android:id="@+id/editLoginSenha"
-            android:inputType="textPassword"
-            android:fontFamily="@font/roboto"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="4dp"
+            android:paddingVertical="20dp">
 
-            android:hint="@string/hintSenha"
-            android:textColorHint="@color/cinza"
-            android:textColor="@color/black"
-            android:importantForAutofill="no"/>
-        <Button
-            android:fontFamily="@font/roboto"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:id="@+id/btnLogin"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/vermelhoBack"
-            android:text="@string/btnEntrarString"/>
-        <CheckBox
-            android:id="@+id/ckbManter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mantenha-me conectado"/>
-        <TextView
-            android:fontFamily="@font/roboto_negrito"
-            android:layout_marginTop="25dp"
-            android:layout_marginStart="35dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/frase2"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/descLogo"
+                android:src="@drawable/logo" />
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-        <Button
-            android:fontFamily="@font/roboto"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            <TextView
 
-            android:backgroundTint="@color/branco"
-            android:id="@+id/btnCadastrar"
-            android:textColor="@color/vermelhoBack"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/btnCadastrarString">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/roboto_negrito"
+                android:text="@string/frase1"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </Button>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/lUsuario"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editLoginEmail"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:fontFamily="@font/roboto"
+                android:hint="@string/hintUsuario"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cinza" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/lSenha"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editLoginSenha"
+                android:layout_width="300dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/roboto"
+                android:hint="@string/hintSenha"
+
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cinza" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/vermelhoBack"
+                android:fontFamily="@font/roboto"
+                android:text="@string/btnEntrarString"
+                android:textColor="@color/white" />
+
+            <CheckBox
+                android:id="@+id/ckbManter"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Mantenha-me conectado"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/roboto_negrito"
+                android:text="@string/frase2"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnCadastrar"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+
+                android:backgroundTint="@color/branco"
+                android:fontFamily="@font/roboto"
+                android:text="@string/btnCadastrarString"
+                android:textColor="@color/vermelhoBack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </Button>
 
 
+        </LinearLayout>
+    </ScrollView>
 
 
-
-
-
-
-
-
-
-    </LinearLayout>
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

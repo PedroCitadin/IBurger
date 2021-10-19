@@ -107,6 +107,6 @@ public class PrincipalFragment extends Fragment {
 
     private void setNomeUsuarioLogado(View view) {
         TextView textUserName = view.findViewById(R.id.textUserName);
-        textUserName.setText(Shared.getString(getActivity(), Shared.KEY_NOME_USUARIO));
+        textUserName.setText(Shared.getString(getActivity(), Shared.KEY_NOME_USUARIO, ""));
     }
 }

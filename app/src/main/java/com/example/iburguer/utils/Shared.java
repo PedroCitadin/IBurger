@@ -10,6 +10,10 @@ import java.util.Map;
 public class Shared {
 
     public static final String KEY_NOME_USUARIO = "NOME_USUARIO";
+    public static final String KEY_EMAIL_USUARIO = "EMAIL_USUARIO";
+    public static final String KEY_SENHA_USUARIO = "SENHA_USUARIO";
+    public static final String KEY_MANTER_LOGADO = "MANTER_LOGADO";
+
     private static SharedPreferences preferences;
 
     public static final void put(final Context activity, final String key, final Object value){
@@ -38,24 +42,29 @@ public class Shared {
         editor.apply();
     }
 
-    public static final String getString(final Context activity, final String key) {
+    public static final String getString(final Context activity, final String key, final String defaultValue) {
         preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        return preferences.getString(key, (String) null);
+        return preferences.getString(key, defaultValue);
     }
 
-    public static final Float getFloat(final Context activity, final String key) {
+    public static final Float getFloat(final Context activity, final String key, final Float defaultValue) {
         preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        return preferences.getFloat(key, (Float) null);
+        return preferences.getFloat(key, defaultValue);
     }
 
-    public static final Integer getInt(final Context activity, final String key) {
+    public static final Integer getInt(final Context activity, final String key, final Integer defaultValue) {
         preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        return preferences.getInt(key, (Integer) null);
+        return preferences.getInt(key, defaultValue);
     }
 
-    public static final Boolean getBoolean(final Context activity, final String key) {
+    public static final Boolean getBoolean(final Context activity, final String key, final Boolean defaultValue) {
         preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        return preferences.getBoolean(key, (Boolean) null);
+        return preferences.getBoolean(key, defaultValue);
+    }
+
+    public static final Long getLong(final Context activity, final String key, final Long defaultValue) {
+        preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        return preferences.getLong(key, defaultValue);
     }
 
     public static final Map<String, ?> getAll(final Context activity, final String key, final Object value) {

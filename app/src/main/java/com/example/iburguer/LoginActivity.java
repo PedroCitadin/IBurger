@@ -27,21 +27,23 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editLoginEmail, editLoginSenha;
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private CheckBox ckbManter;
-    private SharedPreferences sp;
-    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        sp = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+
         ckbManter = findViewById(R.id.ckbManter);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         checkIfUserIsLoggedIn(currentUser);
-        if(sp.getBoolean("manter", false)){
 
-            signIn(sp.getString("user", ""), sp.getString("password", ""));
-
+        if(Shared.getBoolean(LoginActivity.this, Shared.KEY_MANTER_LOGADO, false)){
+            Toast.makeText(LoginActivity.this, "Entrando na conta salva...",
+                    Toast.LENGTH_SHORT).show();
+            signIn(Shared.getString(LoginActivity.this, Shared.KEY_EMAIL_USUARIO, ""),
+                    Shared.getString(LoginActivity.this, Shared.KEY_SENHA_USUARIO, ""));
         }
+
         Button btnCadastro = findViewById(R.id.btnCadastrar);
         btnCadastro.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, CadastroActivity.class)));
 
@@ -65,29 +67,24 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
-
                     Log.d(TAG, "signInWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     checkIfUserIsLoggedIn(user);
+
+                    // Substituir pelo nome do usuário gravado no banco, ligado ao email logado
                     Shared.put(LoginActivity.this, Shared.KEY_NOME_USUARIO, user.getEmail());
-                    // Passando o user para a outra tela: https://stackoverflow.com/questions/4999991/what-is-a-bundle-in-an-android-application
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("user", " " + user.getEmail());
-                    //updateUI(user);
                     if(ckbManter.isChecked()){
-                        editor = sp.edit();
-                        editor.putBoolean("manter", true);
-                        editor.putString("user", user.getEmail());
-                        editor.putString("password", password);
-                        editor.apply();
+                        Shared.put(LoginActivity.this, Shared.KEY_MANTER_LOGADO, true);
+                        Shared.put(LoginActivity.this, Shared.KEY_EMAIL_USUARIO, email);
+                        Shared.put(LoginActivity.this, Shared.KEY_SENHA_USUARIO, password);
                     }
                     startActivity(intent);
                 } else {
-
                     Log.w(TAG, "signInWithEmail:failure", task.getException());
                     Toast.makeText(LoginActivity.this, "Credenciais inválidas",
                             Toast.LENGTH_SHORT).show();
-                    //updateUI(null);
                 }
             });
     }
