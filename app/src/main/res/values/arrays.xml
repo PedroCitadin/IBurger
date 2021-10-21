@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="preloaded_fonts" />
+
+
+    <string-array name="estados">
+        <item >Escolher...</item>
+        <item value="AC">Acre</item>
+        <item value="AL">Alagoas</item>
+        <item value="AP">Amapá</item>
+        <item value="AM">Amazonas</item>
+        <item value="BA">Bahia</item>
+        <item value="CE">Ceará</item>
+        <item value="DF">Distrito Federal</item>
+        <item value="ES">Espírito Santo</item>
+        <item value="GO">Goías</item>
+        <item value="MA">Maranhão</item>
+        <item value="MT">Mato Grosso</item>
+        <item value="MS">Mato Grosso do Sul</item>
+        <item value="MG">Minas Gerais</item>
+        <item value="PA">Pará</item>
+        <item value="PB">Paraíba</item>
+        <item value="PR">Paraná</item>
+        <item value="PE">Pernambuco</item>
+        <item value="PI">Piauí</item>
+        <item value="RJ">Rio de Janeiro</item>
+        <item value="RN">Rio Grande do Norte</item>
+        <item value="RS">Rio Grande do Sul</item>
+        <item value="RO">Rondônia</item>
+        <item value="RR">Roraíma</item>
+        <item value="SC">Santa Catarina</item>
+        <item value="SP">São Paulo</item>
+        <item value="SE">Sergipe</item>
+        <item value="TO">Tocantins</item>
+    </string-array>
 </resources>

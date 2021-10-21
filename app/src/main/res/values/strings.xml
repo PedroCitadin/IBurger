@@ -67,4 +67,29 @@
     <string name="lbldinheirostring">Pagar com dinheiro</string>
     <string name="lblcartaostring">Pagar com cartão</string>
     <string name="btnconfirmapedido">CONFIRMAR PEDIDO</string>
+
+    <!--  -->
+    <!-- Activity endereços  -->
+    <string name="lblseuEnderecos">Seus endereços</string>
+
+    <!--  -->
+    <!-- Activity  novo endereços  -->
+    <string name="lblnovoEndereco">Novo Endereço</string>
+    <string name="lblNovaRua">Rua:</string>
+    <string name="lblNovaBairro">Bairro:</string>
+    <string name="lblNovaCep">CEP:</string>
+    <string name="lblNovaCidade">Cidade:</string>
+    <string name="lblNovaEstado">Estado:</string>
+    <string name="lblNovaNumero">Número:</string>
+    <string name="lblNovaComplemento">Complemento:</string>
+    <string name="hintNovaRua">Insira a rua</string>
+    <string name="hintNovaBairro">Insira o bairro</string>
+    <string name="hintNovaCep">Insira o CEP</string>
+    <string name="hintNovaCidade">Insira a cidade</string>
+    <string name="hintNovaEstado">Insira o estado</string>
+    <string name="hintNovaNumero">Insira o número</string>
+    <string name="hintNovaComplemento">Insira o complemento</string>
+    <string name="btnCadastraEndereco">Salvar Endereço</string>
+
+
 </resources>
