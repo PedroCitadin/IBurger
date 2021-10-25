@@ -90,6 +90,7 @@
     <string name="hintNovaNumero">Insira o número</string>
     <string name="hintNovaComplemento">Insira o complemento</string>
     <string name="btnCadastraEndereco">Salvar Endereço</string>
+    <string name="btnEditarPessoais">Editar informações</string>
 
 
 </resources>
