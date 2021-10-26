@@ -1,5 +1,6 @@
 package com.example.iburguer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,12 +11,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.iburguer.entity.Cliente;
 import com.example.iburguer.utils.InputUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 
@@ -23,8 +27,12 @@ public class CadastroActivity extends AppCompatActivity {
     private static final String TAG = "EmailPassword";
 
     private Button btnCancelar, btnFinalizarCadastro;
-    private EditText editNomeCompleto, editCPF, editEmail, editTelefone, editSenha, editConfirmarSenha;
+    private EditText editNome, editSobrenome, editCPF, editEmail, editTelefone, editSenha, editConfirmarSenha;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+    private FirebaseDatabase rootNode;
+    DatabaseReference reference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +41,8 @@ public class CadastroActivity extends AppCompatActivity {
         btnCancelar = findViewById(R.id.btnCancelar);
         btnFinalizarCadastro = findViewById(R.id.btnFinalizarCadastro);
 
-        editNomeCompleto = findViewById(R.id.editNomeCompleto);
+        editNome = findViewById(R.id.editNome);
+        editSobrenome = findViewById(R.id.editSobrenome);
         editCPF = findViewById(R.id.editCPF);
         editEmail = findViewById(R.id.editEmail);
         editTelefone = findViewById(R.id.editTelefone);
@@ -44,8 +53,15 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isSenhasValidas(editSenha.getText().toString(), editConfirmarSenha.getText().toString())){
-                    createAccount(editEmail.getText().toString(), editSenha.getText().toString());
-                    InputUtil.clearFields(Arrays.asList(editNomeCompleto, editCPF, editEmail, editTelefone, editSenha, editConfirmarSenha));
+                    createNewCliente(
+                            editNome.getText().toString(),
+                            editSobrenome.getText().toString(),
+                            editCPF.getText().toString(),
+                            editEmail.getText().toString(),
+                            editTelefone.getText().toString(),
+                            editSenha.getText().toString());
+
+                    InputUtil.clearFields(Arrays.asList(editNome, editCPF, editEmail, editTelefone, editSenha, editConfirmarSenha));
                 }
             }
         });
@@ -56,6 +72,38 @@ public class CadastroActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void createNewCliente(String nome, String sobrenome, String cpf, String email, String telefone, String senha){
+        Cliente cliente = new Cliente(nome, sobrenome, cpf, email, telefone);
+        createAccount(cliente, senha);
+    }
+
+    private void createAccount(Cliente cliente, String senha){
+        mAuth.createUserWithEmailAndPassword(cliente.getEmail(), senha)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "createUserWithEmail:success");
+                            Toast.makeText(CadastroActivity.this, "Conta criada com sucesso!",
+                                    Toast.LENGTH_SHORT).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            postCliente(cliente, user.getUid());
+                            startActivity(new Intent(CadastroActivity.this, MainActivity.class));
+                        } else {
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(CadastroActivity.this, "Authentication failed: " + task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void postCliente(Cliente cliente, String userId){
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("clientes");
+        reference.child(userId).setValue(cliente);
     }
 
     private boolean isSenhasValidas(String senha, String confirmarSenha){
@@ -70,25 +118,5 @@ public class CadastroActivity extends AppCompatActivity {
         return true;
     }
 
-    private void createAccount(String email, String senha){
-        mAuth.createUserWithEmailAndPassword(email, senha)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            Toast.makeText(CadastroActivity.this, "Conta criada com sucesso!",
-                                    Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
 
-                            //updateUI(user) ATUALIZAR TELA;
-                        } else {
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(CadastroActivity.this, "Authentication failed: " + task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
 }

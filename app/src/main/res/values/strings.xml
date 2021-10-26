@@ -14,7 +14,9 @@
     <!--  TELA Cadastro    -->
     <string name="frase3">Crie sua conta:</string>
     <string name="lNome">Seu nome:</string>
-    <string name="hintNome">Insira seu nome completo</string>
+    <string name="hintNome">Insira seu primeiro nome</string>
+    <string name="lSobrenome">Seu sobrenome:</string>
+    <string name="hintSobrenome">Insira seu sobrenome</string>
     <string name="lblCpf">Seu CPF:</string>
     <string name="hintCpf">Insira seu cpf</string>
     <string name="lblEmail">Seu email:</string>
