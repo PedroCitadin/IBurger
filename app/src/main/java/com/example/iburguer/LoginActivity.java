@@ -1,10 +1,7 @@
 package com.example.iburguer;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -35,13 +32,14 @@ public class LoginActivity extends AppCompatActivity {
 
         ckbManter = findViewById(R.id.ckbManter);
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        checkIfUserIsLoggedIn(currentUser);
 
-        if(Shared.getBoolean(LoginActivity.this, Shared.KEY_MANTER_LOGADO, false)){
+        if(Shared.getBoolean(LoginActivity.this, Shared.KEY_MANTER_LOGADO, false) && isUserLoggedIn(currentUser)){
             Toast.makeText(LoginActivity.this, "Entrando na conta salva...",
                     Toast.LENGTH_SHORT).show();
             signIn(Shared.getString(LoginActivity.this, Shared.KEY_EMAIL_USUARIO, ""),
                     Shared.getString(LoginActivity.this, Shared.KEY_SENHA_USUARIO, ""));
+        } else {
+            Shared.put(LoginActivity.this, Shared.KEY_MANTER_LOGADO, false);
         }
 
         Button btnCadastro = findViewById(R.id.btnCadastrar);
@@ -69,11 +67,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Log.d(TAG, "signInWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    checkIfUserIsLoggedIn(user);
 
                     // Substituir pelo nome do usuário gravado no banco, ligado ao email logado
                     Shared.put(LoginActivity.this, Shared.KEY_NOME_USUARIO, user.getEmail());
-
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     if(ckbManter.isChecked()){
                         Shared.put(LoginActivity.this, Shared.KEY_MANTER_LOGADO, true);
@@ -89,9 +85,12 @@ public class LoginActivity extends AppCompatActivity {
             });
     }
 
-    private void checkIfUserIsLoggedIn(FirebaseUser currentUser){
+    private Boolean isUserLoggedIn(FirebaseUser currentUser){
         if(currentUser != null){
             currentUser.reload();
+            return true;
+        } else {
+            return false;
         }
     }
 }

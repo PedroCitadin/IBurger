@@ -1,12 +1,16 @@
 package com.example.iburguer;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,19 +28,12 @@ public class ContaFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private Button btnSairConta;
+
     public ContaFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ContaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ContaFragment newInstance(String param1, String param2) {
         ContaFragment fragment = new ContaFragment();
         Bundle args = new Bundle();
@@ -53,12 +50,31 @@ public class ContaFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Handler handler = new Handler();
+
+        new Thread() {
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        btnSairConta = (Button) getActivity().findViewById(R.id.btnSairConta);
+                        btnSairConta.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                mAuth.signOut();
+                                //Shared.put(getActivity().getApplicationContext(), Shared.KEY_MANTER_LOGADO, false);
+                                startActivity(new Intent(getActivity(), LoginActivity.class));
+                            }
+                        });
+                    }
+                });
+            }
+        }.start();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_conta, container, false);
     }
 }
