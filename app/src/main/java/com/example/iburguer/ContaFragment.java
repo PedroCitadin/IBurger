@@ -7,10 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.iburguer.utils.Constants;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
  * create an instance of this fragment.
  */
 public class ContaFragment extends Fragment {
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,8 +40,10 @@ public class ContaFragment extends Fragment {
     private String mParam2;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private final FirebaseUser user = mAuth.getCurrentUser();
+    DatabaseReference reference;
     private Button btnSairConta;
-
+    private TextView lblNomePessoa;
     public ContaFragment() {
     }
 
@@ -56,6 +69,8 @@ public class ContaFragment extends Fragment {
             public void run() {
                 handler.post(new Runnable() {
                     public void run() {
+                        lblNomePessoa = (TextView) getActivity().findViewById(R.id.lblNomePessoa);
+
                         btnSairConta = (Button) getActivity().findViewById(R.id.btnSairConta);
                         btnSairConta.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -75,6 +90,27 @@ public class ContaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        readDataFromCliente();
         return inflater.inflate(R.layout.fragment_conta, container, false);
+
+    }
+
+    private void readDataFromCliente() {
+        reference = FirebaseDatabase.getInstance().getReference("clientes");
+        reference.child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    if(task.getResult().exists()) {
+                        DataSnapshot dataSnapshot = task.getResult();
+                        lblNomePessoa.setText(String.valueOf(dataSnapshot.child(Constants.NOME_CLIENTE).getValue()));
+                    } else {
+                        Toast.makeText(getContext(), "Falha na leitura de dados: usuário não existe!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Falha ao ler dados do banco!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
