@@ -4,18 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/vermelhoBack">
+    android:background="@color/branco">
     <LinearLayout
-        android:layout_width="370dp"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/branco"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:isScrollContainer="true"
-        android:padding="28dp">
-        <TextView
+        android:background="@color/branco"
+        android:padding="32dp">
 
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -26,7 +26,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <TextView
             android:fontFamily="@font/roboto"
             android:layout_width="wrap_content"
@@ -39,20 +40,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <EditText
             android:id="@+id/editNome"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:inputType="text"
             android:autofillHints="name"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintNome"
             android:textColorHint="@color/cinza"
             android:textColor="@color/black"
-            android:layout_marginTop="2dp"
-            />
+            android:textSize="16sp"
+            android:background="@drawable/input"
+            android:paddingHorizontal="15dp"
+            android:layout_marginTop="2dp"/>
+
         <TextView
             android:fontFamily="@font/roboto"
             android:layout_width="wrap_content"
@@ -65,20 +69,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <EditText
             android:id="@+id/editSobrenome"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginTop="2dp"
             android:autofillHints="name"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintSobrenome"
             android:inputType="text"
             android:textColor="@color/black"
-            android:textColorHint="@color/cinza" />
+            android:textColorHint="@color/cinza"
+            android:textSize="16sp"
+            android:background="@drawable/input"
+            android:paddingHorizontal="15dp"/>
 
         <TextView
             android:fontFamily="@font/roboto"
@@ -92,19 +98,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <EditText
             android:id="@+id/editCPF"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:inputType="number"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintCpf"
             android:textColorHint="@color/cinza"
             android:textColor="@color/black"
-            android:layout_marginTop="2dp"
-            />
+            android:textSize="16sp"
+            android:background="@drawable/input"
+            android:paddingHorizontal="15dp"
+            android:layout_marginTop="2dp"/>
+
         <TextView
             android:fontFamily="@font/roboto"
             android:layout_width="wrap_content"
@@ -117,12 +126,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:inputType="textEmailAddress"
             android:autofillHints="emailAddress"
             android:fontFamily="@font/roboto"
@@ -130,7 +139,10 @@
             android:textColorHint="@color/cinza"
             android:textColor="@color/black"
             android:layout_marginTop="2dp"
-            />
+            android:textSize="16sp"
+            android:background="@drawable/input"
+            android:paddingHorizontal="15dp"/>
+
         <TextView
             android:fontFamily="@font/roboto"
             android:layout_width="wrap_content"
@@ -143,20 +155,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <EditText
             android:id="@+id/editTelefone"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:inputType="phone"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
             android:autofillHints="phone"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintTelefone"
-            android:textColorHint="@color/cinza"
+            android:inputType="phone"
             android:textColor="@color/black"
-            android:layout_marginTop="2dp"
-            />
+            android:textColorHint="@color/cinza"
+            android:textSize="16sp"
+            android:background="@drawable/input"
+            android:paddingHorizontal="15dp"/>
+
         <TextView
             android:fontFamily="@font/roboto"
             android:layout_width="wrap_content"
@@ -169,20 +184,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <EditText
             android:id="@+id/editSenha"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginTop="2dp"
             android:autofillHints="password"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintSenha"
             android:textColorHint="@color/cinza"
             android:inputType="textPassword"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/input"
+            android:paddingHorizontal="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -196,38 +213,43 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <EditText
             android:id="@+id/editConfirmarSenha"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:inputType="textPassword"
             android:fontFamily="@font/roboto"
             android:hint="@string/hintConfirmaSenhaString"
             android:textColorHint="@color/cinza"
             android:textColor="@color/black"
             android:layout_marginTop="2dp"
-            />
-        <Button
-            android:fontFamily="@font/roboto"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:id="@+id/btnFinalizarCadastro"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/vermelhoBack"
-            android:text="@string/btnFinalizarString"/>
-        <Button
-            android:fontFamily="@font/roboto"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:id="@+id/btnCancelar"
-            android:textColor="@color/vermelhoBack"
-            android:backgroundTint="@color/branco"
-            android:text="@string/btnCancelarString"
-            />
-    </LinearLayout>
+            android:textSize="16sp"
+            android:background="@drawable/input"
+            android:paddingHorizontal="15dp"/>
 
+        <Button
+            android:id="@+id/btnFinalizarCadastro"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/btnFinalizarString"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_filled"/>
+
+        <Button
+            android:id="@+id/btnCancelar"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/vermelhoBack"
+            android:background="@drawable/btn_outline"
+            android:text="@string/btnCancelarString"/>
+
+    </LinearLayout>
 </ScrollView>

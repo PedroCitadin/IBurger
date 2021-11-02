@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
                 signIn(editLoginEmail.getText().toString(), editLoginSenha.getText().toString());
                 Toast.makeText(LoginActivity.this, "Carregando...",
                         Toast.LENGTH_SHORT).show();
-                InputUtil.clearFields(Arrays.asList(editLoginEmail, editLoginSenha));
             } catch(IllegalArgumentException exception) {
                 Toast.makeText(LoginActivity.this, "Nenhum campo pode estar vazio!",
                         Toast.LENGTH_SHORT).show();
@@ -76,7 +75,9 @@ public class LoginActivity extends AppCompatActivity {
                         Shared.put(LoginActivity.this, Shared.KEY_EMAIL_USUARIO, email);
                         Shared.put(LoginActivity.this, Shared.KEY_SENHA_USUARIO, password);
                     }
+                    InputUtil.clearFields(Arrays.asList(editLoginEmail, editLoginSenha));
                     startActivity(intent);
+                    finish();
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.getException());
                     Toast.makeText(LoginActivity.this, "Credenciais inválidas",
