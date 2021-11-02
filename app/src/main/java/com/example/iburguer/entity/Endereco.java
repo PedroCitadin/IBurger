@@ -1,16 +1,19 @@
 package com.example.iburguer.entity;
 
 public class Endereco {
-    private long id;
-    private String rua, numero, bairro, cep, cidade, estado, complemento;
-    private Cliente cliente;
+    private String rua, numero, bairro, cep, cidade, estado, complemento, clienteId;
 
-    public long getId() {
-        return id;
-    }
+    public Endereco(){}
 
-    public void setId(long id) {
-        this.id = id;
+    public Endereco(String rua, String numero, String bairro, String cep, String cidade, String estado, String complemento, String clienteId) {
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.complemento = complemento;
+        this.clienteId = clienteId;
     }
 
     public String getRua() {
@@ -69,11 +72,11 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public String getClienteId() {
+        return clienteId;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setClienteId(String clienteId) {
+        this.clienteId = clienteId;
     }
 }

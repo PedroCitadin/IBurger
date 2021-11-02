@@ -28,7 +28,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LojaActivity" />
         <activity android:name=".EnderecosActivity" />
-        <activity android:name=".NovoEnderecoActivity" />
+        <activity
+            android:windowSoftInputMode="adjustPan"
+            android:name=".NovoEnderecoActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

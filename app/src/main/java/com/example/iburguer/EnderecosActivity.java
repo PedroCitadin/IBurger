@@ -1,5 +1,6 @@
 package com.example.iburguer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,7 +21,7 @@ public class EnderecosActivity extends AppCompatActivity {
         btnAddEndereco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(EnderecosActivity.this, NovoEnderecoActivity.class));
             }
         });
     }
