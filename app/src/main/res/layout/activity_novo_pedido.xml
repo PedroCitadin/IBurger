@@ -75,7 +75,6 @@
                 android:layout_height="60dp"
                 android:text="@string/btnadditensstring"
                 android:textSize="16sp"
-
                 android:fontFamily="@font/roboto_negrito"/>
         </LinearLayout>
         <LinearLayout
