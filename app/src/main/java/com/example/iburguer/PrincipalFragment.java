@@ -6,30 +6,41 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.iburguer.entity.Endereco;
+import com.example.iburguer.entity.Hamburgueria;
 import com.example.iburguer.utils.Constants;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrincipalFragment extends Fragment {
     private String idEnderecoPadrao, enderecoPadrao;
     private String nomeCliente;
+    private ListView lista_hamburguerias;
     private TextView textClienteNome, lbl_endereco_atual;
     private SharedPreferences sp;
-    DatabaseReference reference;
+    DatabaseReference reference, rfHamburguerias;
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private final FirebaseUser user = mAuth.getCurrentUser();
+    private List<Hamburgueria> lista_hambugueria = new ArrayList<Hamburgueria>();
+    ArrayAdapter<Hamburgueria> adapter;
     public PrincipalFragment() {}
 
     public static PrincipalFragment newInstance(Bundle clienteData) {
@@ -56,17 +67,12 @@ public class PrincipalFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
-        Button testeLoja = (Button) view.findViewById(R.id.lojateste);
+        lista_hamburguerias = view.findViewById(R.id.lista_hamburguerias);
         textClienteNome = view.findViewById(R.id.textClienteNome);
         lbl_endereco_atual = view.findViewById(R.id.lbl_endereco_atual);
-        testeLoja.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), LojaActivity.class));
-            }
-        });
+
         if(!idEnderecoPadrao.equals("nulo")){
-            reference = FirebaseDatabase.getInstance().getReference("enderecos/"+idEnderecoPadrao);
+            reference = FirebaseDatabase.getInstance().getReference("enderecos").child(idEnderecoPadrao);
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -88,7 +94,27 @@ public class PrincipalFragment extends Fragment {
         }else{
             lbl_endereco_atual.setText("vazio");
         }
-        
+        rfHamburguerias = FirebaseDatabase.getInstance().getReference("hamburguerias");
+        rfHamburguerias.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot obj: snapshot.getChildren()){
+                    Hamburgueria ham = obj.getValue(Hamburgueria.class);
+                    ham.setId(obj.getKey());
+                    lista_hambugueria.add(ham);
+
+
+                }
+                adapter = new ArrayAdapter<Hamburgueria>(getActivity(), android.R.layout.simple_list_item_1, lista_hambugueria);
+                lista_hamburguerias.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         textClienteNome.setText(nomeCliente);
     }
 

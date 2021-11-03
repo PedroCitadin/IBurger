@@ -1,15 +1,15 @@
 package com.example.iburguer.entity;
 
 public class Hamburgueria {
-    private long id;
+    private String id;
     private String nome, cnpj, descricao, telefone;
     private Endereco endereco;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,5 +51,10 @@ public class Hamburgueria {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 }

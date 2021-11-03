@@ -184,20 +184,14 @@
             <LinearLayout
                 android:id="@+id/llteste"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
-                <LinearLayout
-
+                <ListView
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:gravity="center">
-                    <Button
-                        android:id="@+id/lojateste"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Teste"
-                        android:textSize="20sp"/>
-                </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:id="@+id/lista_hamburguerias">
+
+                </ListView>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
