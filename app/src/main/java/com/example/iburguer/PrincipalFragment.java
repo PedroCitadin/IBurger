@@ -65,10 +65,11 @@ public class PrincipalFragment extends Fragment {
                 startActivity(new Intent(getActivity(), LojaActivity.class));
             }
         });
-        reference = FirebaseDatabase.getInstance().getReference("enderecos/"+idEnderecoPadrao);
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+        if(!idEnderecoPadrao.equals("nulo")){
+            reference = FirebaseDatabase.getInstance().getReference("enderecos/"+idEnderecoPadrao);
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                     Endereco end = snapshot.getValue(Endereco.class);
                     end.setId(snapshot.getKey());
@@ -76,14 +77,17 @@ public class PrincipalFragment extends Fragment {
 
 
 
-                lbl_endereco_atual.setText(enderecoPadrao);
-            }
+                    lbl_endereco_atual.setText(enderecoPadrao);
+                }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println("The read failed: " + error.getCode());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    System.out.println("The read failed: " + error.getCode());
+                }
+            });
+        }else{
+            lbl_endereco_atual.setText("vazio");
+        }
         
         textClienteNome.setText(nomeCliente);
     }
