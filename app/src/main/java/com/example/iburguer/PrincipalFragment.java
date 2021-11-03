@@ -65,19 +65,17 @@ public class PrincipalFragment extends Fragment {
                 startActivity(new Intent(getActivity(), LojaActivity.class));
             }
         });
-        reference = FirebaseDatabase.getInstance().getReference("enderecos");
-        reference.orderByChild("clienteId").equalTo(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        reference = FirebaseDatabase.getInstance().getReference("enderecos/"+idEnderecoPadrao);
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot obj: snapshot.getChildren()){
-                    Endereco end = obj.getValue(Endereco.class);
-                    end.setId(obj.getKey());
-                    if (end.getId().equals(idEnderecoPadrao)){
-                        enderecoPadrao = end.toString();
-                    }
+
+                    Endereco end = snapshot.getValue(Endereco.class);
+                    end.setId(snapshot.getKey());
+                    enderecoPadrao = end.toString();
 
 
-                }
+
                 lbl_endereco_atual.setText(enderecoPadrao);
             }
 
