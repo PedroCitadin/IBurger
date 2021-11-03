@@ -1,7 +1,15 @@
 package com.example.iburguer.entity;
 
 public class Endereco {
-    private String rua, numero, bairro, cep, cidade, estado, complemento, clienteId;
+    private String id,rua, numero, bairro, cep, cidade, estado, complemento, clienteId;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Endereco(){}
 
@@ -79,4 +87,12 @@ public class Endereco {
     public void setClienteId(String clienteId) {
         this.clienteId = clienteId;
     }
+
+
+    @Override
+    public String toString() {
+        return rua + " Nº "+numero+", "+bairro+", "+complemento+", "+cidade+", "+estado;
+    }
+
+
 }

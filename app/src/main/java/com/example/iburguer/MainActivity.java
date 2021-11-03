@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.iburguer.entity.Endereco;
+import com.example.iburguer.entity.EnderecoCliente;
 import com.example.iburguer.utils.Constants;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private final FirebaseUser user = mAuth.getCurrentUser();
     DatabaseReference reference;
-
+    private SharedPreferences sp;
+    String enderecoPadrao;
     String nomeCliente;
     Bundle clienteData = new Bundle();
 
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         BottomNavigationView menu_navegacao = findViewById(R.id.menu_navegacao);
         reference = FirebaseDatabase.getInstance().getReference("clientes");
-
+        sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         reference.child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -45,9 +48,11 @@ public class MainActivity extends AppCompatActivity {
                     if(task.getResult().exists()) {
                         DataSnapshot dataSnapshot = task.getResult();
 
-                        nomeCliente = String.valueOf(dataSnapshot.child(Constants.NOME_CLIENTE).getValue());
-                        clienteData.putString(Constants.NOME_CLIENTE, nomeCliente);
 
+                        nomeCliente = String.valueOf(dataSnapshot.child(Constants.NOME_CLIENTE).getValue());
+
+                        clienteData.putString(Constants.NOME_CLIENTE, nomeCliente);
+                        clienteData.putString(Constants.ENDERECO_PADRAO, sp.getString("padrao", "nulo"));
                         menu_navegacao.setOnNavigationItemSelectedListener(bottomNavMethod);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, new PrincipalFragment().newInstance(clienteData)).commit();
                     } else {
