@@ -1,16 +1,16 @@
 package com.example.iburguer.entity;
 
 public class Produto {
-    private long id;
+    private String id;
     private String nome, descricao;
-    private Float valor;
+    private String valor;
     private Hamburgueria hamburgueria;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -30,11 +30,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Float getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 

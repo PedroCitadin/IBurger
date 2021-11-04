@@ -24,7 +24,7 @@
             tools:ignore="ContentDescription" />
             <TextView
                 android:layout_marginStart="15dp"
-
+                android:id="@+id/txtNomeLoja"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nome da loja"
@@ -57,9 +57,14 @@
             android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <ListView
+                    android:id="@+id/lista_produtos"
+                    android:layout_width="match_parent"
+                    android:layout_height="490dp">
 
+                </ListView>
             </LinearLayout>
         </ScrollView>
 

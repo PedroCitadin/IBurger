@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -39,7 +40,7 @@ public class PrincipalFragment extends Fragment {
     DatabaseReference reference, rfHamburguerias;
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private final FirebaseUser user = mAuth.getCurrentUser();
-    private List<Hamburgueria> lista_hambugueria = new ArrayList<Hamburgueria>();
+    private List<Hamburgueria> lista_ham= new ArrayList<Hamburgueria>();
     ArrayAdapter<Hamburgueria> adapter;
     public PrincipalFragment() {}
 
@@ -101,11 +102,11 @@ public class PrincipalFragment extends Fragment {
                 for(DataSnapshot obj: snapshot.getChildren()){
                     Hamburgueria ham = obj.getValue(Hamburgueria.class);
                     ham.setId(obj.getKey());
-                    lista_hambugueria.add(ham);
+                    lista_ham.add(ham);
 
 
                 }
-                adapter = new ArrayAdapter<Hamburgueria>(getActivity(), android.R.layout.simple_list_item_1, lista_hambugueria);
+                adapter = new ArrayAdapter<Hamburgueria>(getActivity(), android.R.layout.simple_list_item_1, lista_ham);
                 lista_hamburguerias.setAdapter(adapter);
             }
 
@@ -116,6 +117,16 @@ public class PrincipalFragment extends Fragment {
         });
 
         textClienteNome.setText(nomeCliente);
+
+        lista_hamburguerias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Hamburgueria ham = (Hamburgueria) lista_hamburguerias.getItemAtPosition(position);
+                Intent it = new Intent(getActivity(), LojaActivity.class);
+                it.putExtra("idHamburgueria", ham.getId());
+                startActivity(it);
+            }
+        });
     }
 
 }
