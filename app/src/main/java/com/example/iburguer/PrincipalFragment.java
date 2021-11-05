@@ -3,6 +3,7 @@ package com.example.iburguer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +56,11 @@ public class PrincipalFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             nomeCliente = getArguments().getString(Constants.NOME_CLIENTE);
-            idEnderecoPadrao = getArguments().getString(Constants.ENDERECO_PADRAO);
+
         }
+        sp = PreferenceManager.getDefaultSharedPreferences(getContext());
+        idEnderecoPadrao = sp.getString("padrao", "nulo");
+
     }
 
     @Override
@@ -128,5 +132,7 @@ public class PrincipalFragment extends Fragment {
             }
         });
     }
+
+
 
 }

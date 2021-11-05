@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
@@ -62,12 +63,23 @@
                 <ListView
                     android:id="@+id/lista_produtos"
                     android:layout_width="match_parent"
-                    android:layout_height="490dp">
+                    android:layout_height="400dp">
+
 
                 </ListView>
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:visibility="invisible"
+        android:id="@+id/btnPedido"
+        android:layout_gravity="bottom|center"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        tools:ignore="MissingConstraints"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

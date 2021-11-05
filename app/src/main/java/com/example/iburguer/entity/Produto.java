@@ -3,8 +3,15 @@ package com.example.iburguer.entity;
 public class Produto {
     private String id;
     private String nome, descricao;
-    private String valor;
+    private Float valor;
     private Hamburgueria hamburgueria;
+
+    public Produto(String id) {
+        this.id = id;
+    }
+
+    public Produto() {
+    }
 
     public String getId() {
         return id;
@@ -30,11 +37,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public String getValor() {
+    public Float getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(Float valor) {
         this.valor = valor;
     }
 

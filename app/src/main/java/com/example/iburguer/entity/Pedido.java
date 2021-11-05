@@ -3,18 +3,18 @@ package com.example.iburguer.entity;
 import java.util.List;
 
 public class Pedido {
-    private long id;
+    private String id;
     private Hamburgueria hamburgueria;
     private Cliente cliente;
     private float valor;
     private Endereco endereco;
     private List<Items_pedido> items;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

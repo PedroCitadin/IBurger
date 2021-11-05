@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <TextView
+        android:fontFamily="@font/roboto"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Produto"
+        android:id="@+id/txtNomeProduto"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <LinearLayout
+
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtDescProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"></View>
+        <TextView
+            android:text="Observações: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <EditText
+            android:id="@+id/editObs"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+        <TextView
+            android:inputType="text"
+            android:text="Quantidade: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <EditText
+            android:text="1"
+            android:inputType="number"
+            android:id="@+id/editQuantidade"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnProdutoVoltar"
+                android:text="Voltar"
+                android:layout_width="150dp"
+                android:layout_height="60dp"/>
+            <View
+                android:layout_width="20dp"
+                android:layout_height="5dp"/>
+            <Button
+                android:id="@+id/btnAddProduto"
+                android:text="Adicionar ao carrinho"
+                android:layout_width="150dp"
+                android:layout_height="60dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
