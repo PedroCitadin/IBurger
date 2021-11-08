@@ -3,6 +3,7 @@ package com.example.iburguer.dialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.iburguer.Model.Pedido;
@@ -31,7 +33,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class NovoPedidoDialog {
@@ -113,6 +119,7 @@ public class NovoPedidoDialog {
             }
         });
         btnConfirmarPedido.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
@@ -127,7 +134,9 @@ public class NovoPedidoDialog {
                 }else{
                     pagamento = "CARTÃO";
                 }
-                Pedido pedido = new Pedido(mAuth.getCurrentUser().getUid(), endereco.getId(), hamburgueria.getId(), "AGUARDANDO APROVACAO", pagamento, valorTotal, lista);
+                String data = com.example.iburguer.entity.Pedido.pegaData();
+
+                Pedido pedido = new Pedido(mAuth.getCurrentUser().getUid(), endereco.getId(), hamburgueria.getId(), "AGUARDANDO APROVACAO", pagamento, valorTotal, lista, data);
                 postPedido(pedido);
                 carr.clear();
                 btnPedido.setVisibility(View.INVISIBLE);

@@ -1,13 +1,27 @@
 package com.example.iburguer.Model;
 
+import java.util.Date;
 import java.util.List;
 
 public class Pedido {
+
     private String clienteId, enderecoId, hamburgueriaId, situacao, pagamento;
     private float valorTotal;
     private List<Items_pedido> itensPedido;
+    private String data_pedido;
 
-    public Pedido(String clienteId, String enderecoId, String hamburgueriaId, String situacao, String pagamento, float valorTotal, List<Items_pedido> itensPedido) {
+    public Pedido() {
+    }
+
+    public String getData_pedido() {
+        return data_pedido;
+    }
+
+    public void setData_pedido(String data_pedido) {
+        this.data_pedido = data_pedido;
+    }
+
+    public Pedido(String clienteId, String enderecoId, String hamburgueriaId, String situacao, String pagamento, float valorTotal, List<Items_pedido> itensPedido, String data_pedido) {
         this.clienteId = clienteId;
         this.enderecoId = enderecoId;
         this.hamburgueriaId = hamburgueriaId;
@@ -15,6 +29,7 @@ public class Pedido {
         this.pagamento = pagamento;
         this.valorTotal = valorTotal;
         this.itensPedido = itensPedido;
+        this.data_pedido = data_pedido;
     }
 
     public String getClienteId() {
@@ -71,5 +86,10 @@ public class Pedido {
 
     public void setItensPedido(List<Items_pedido> itensPedido) {
         this.itensPedido = itensPedido;
+    }
+
+    @Override
+    public String toString() {
+        return "R$ "+valorTotal+" - "+situacao+" - "+data_pedido;
     }
 }

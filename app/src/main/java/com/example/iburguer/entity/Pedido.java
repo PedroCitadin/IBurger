@@ -1,5 +1,15 @@
 package com.example.iburguer.entity;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Pedido {
@@ -56,5 +66,21 @@ public class Pedido {
 
     public void setItems(List<Items_pedido> items) {
         this.items = items;
+    }
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String pegaData(){
+        SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
+        Date data = new Date();
+        String aux = formataData.format(data);
+        String hora = String.valueOf(Calendar.getInstance().getTime().getHours()+":"+Calendar.getInstance().getTime().getMinutes());
+
+
+        return aux +" "+hora;
+
+
+
     }
 }

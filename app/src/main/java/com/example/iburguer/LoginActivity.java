@@ -1,6 +1,7 @@
 package com.example.iburguer;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -8,8 +9,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.iburguer.entity.Pedido;
 import com.example.iburguer.utils.InputUtil;
 import com.example.iburguer.utils.Shared;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editLoginEmail, editLoginSenha;
     private final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private CheckBox ckbManter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
     private void signIn(String email, String password){
+
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {

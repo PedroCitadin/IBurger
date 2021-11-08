@@ -34,6 +34,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="SpeakableTextPresentCheck,UselessLeaf">
+            <LinearLayout
+                android:id="@+id/llteste"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="475dp"
+                    android:id="@+id/lista_pedidos">
+
+                </ListView>
+            </LinearLayout>
 
         </ScrollView>
     </LinearLayout>

@@ -14,6 +14,9 @@ public class Items_pedido {
         return obsercavao;
     }
 
+    public Items_pedido() {
+    }
+
     public void setObsercavao(String obsercavao) {
         this.obsercavao = obsercavao;
     }
