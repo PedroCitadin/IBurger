@@ -51,9 +51,8 @@
     <!-- - -->
     <!--  Fragment Conta    -->
     <string name="lblinfopessoais">Informações pessoais</string>
-    <string name="lbldescinfopessoais">Nome completo e CPF</string>
-    <string name="lbldadoscontato">Dados de contato</string>
-    <string name="lbldescdadoscontato">E-mail e telefone de contato</string>
+    <string name="lbldescinfopessoais">Nome completo e CPF e contato</string>
+
     <string name="lbldadosacesso">Dados de Login</string>
     <string name="lbldescdadosacesso">Senha de acesso à conta</string>
     <string name="lbldadosentrega">Dados de entrega</string>
@@ -93,6 +92,7 @@
     <string name="hintNovaComplemento">Insira o complemento</string>
     <string name="btnCadastraEndereco">Salvar Endereço</string>
     <string name="btnEditarPessoais">Editar informações</string>
+    <string name="dados_pessoais">Dados Pessoais</string>
 
 
 </resources>

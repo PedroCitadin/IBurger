@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.iburguer.entity.Endereco;
 import com.example.iburguer.entity.EnderecoCliente;
+import com.example.iburguer.utils.MaskEditUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,6 +37,7 @@ public class NovoEnderecoActivity extends AppCompatActivity implements AdapterVi
         editBairro = findViewById(R.id.editBairro);
         editNumero = findViewById(R.id.editNumero);
         editCep = findViewById(R.id.editCep);
+        editCep.addTextChangedListener(MaskEditUtil.mask(editCep, MaskEditUtil.FORMAT_CEP));
         editCidade = findViewById(R.id.editCidade);
         editComplemento = findViewById(R.id.editComplemento);
         btnSalvarEndereco = findViewById(R.id.btnSalvarEndereco);
@@ -58,6 +60,7 @@ public class NovoEnderecoActivity extends AppCompatActivity implements AdapterVi
 
                 Endereco endereco = new Endereco(rua, numero, bairro, cep, cidade, estado, complemento, mAuth.getCurrentUser().getUid());
                 postEndereco(endereco);
+                finish();
             }
         });
 

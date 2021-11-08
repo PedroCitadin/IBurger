@@ -22,7 +22,7 @@ public class ContaFragment extends Fragment {
     private Button btnSairConta;
     private TextView textClienteNome;
     private ImageButton arrowBtnEnderecos;
-
+    private ImageButton arrowBtnPessoais;
     public ContaFragment() {
     }
 
@@ -52,7 +52,7 @@ public class ContaFragment extends Fragment {
         textClienteNome = view.findViewById(R.id.textClienteNome);
         btnSairConta = view.findViewById(R.id.btnSairConta);
         arrowBtnEnderecos = view.findViewById(R.id.arrowBtnEnderecos);
-
+        arrowBtnPessoais = view.findViewById(R.id.arrowBtnPessoais);
         textClienteNome.setText(nomeCliente);
         btnSairConta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +66,12 @@ public class ContaFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), EnderecosActivity.class));
+            }
+        });
+        arrowBtnPessoais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), PessoaisActivity.class));
             }
         });
     }

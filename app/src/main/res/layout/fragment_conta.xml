@@ -81,6 +81,7 @@
                     android:gravity="center">
 
                     <ImageButton
+                        android:id="@+id/arrowBtnPessoais"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
@@ -90,56 +91,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/cinza" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="290dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/lbldadoscontato"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/lbldescdadoscontato"
-                        android:textColor="@color/cinzafont"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-
-                    <ImageButton
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/branco"
-                        android:src="@drawable/ic_flecha_vermelha"
-                        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-                </LinearLayout>
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

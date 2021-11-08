@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.iburguer.entity.Cliente;
 import com.example.iburguer.utils.InputUtil;
+import com.example.iburguer.utils.MaskEditUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -44,8 +45,10 @@ public class CadastroActivity extends AppCompatActivity {
         editNome = findViewById(R.id.editNome);
         editSobrenome = findViewById(R.id.editSobrenome);
         editCPF = findViewById(R.id.editCPF);
+        editCPF.addTextChangedListener(MaskEditUtil.mask(editCPF, MaskEditUtil.FORMAT_CPF));
         editEmail = findViewById(R.id.editEmail);
         editTelefone = findViewById(R.id.editTelefone);
+        editTelefone.addTextChangedListener(MaskEditUtil.mask(editTelefone, MaskEditUtil.FORMAT_FONE));
         editSenha = findViewById(R.id.editSenha);
         editConfirmarSenha = findViewById(R.id.editConfirmarSenha);
 

@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,6 +37,7 @@ import java.util.List;
 public class PrincipalFragment extends Fragment {
     private String idEnderecoPadrao, enderecoPadrao;
     private String nomeCliente;
+    private ImageView imgUpdateEndereco;
     private ListView lista_hamburguerias;
     private TextView textClienteNome, lbl_endereco_atual;
     private SharedPreferences sp;
@@ -43,6 +46,7 @@ public class PrincipalFragment extends Fragment {
     private final FirebaseUser user = mAuth.getCurrentUser();
     private List<Hamburgueria> lista_ham= new ArrayList<Hamburgueria>();
     ArrayAdapter<Hamburgueria> adapter;
+    private ImageButton btnEnderecosMain;
     public PrincipalFragment() {}
 
     public static PrincipalFragment newInstance(Bundle clienteData) {
@@ -75,7 +79,8 @@ public class PrincipalFragment extends Fragment {
         lista_hamburguerias = view.findViewById(R.id.lista_hamburguerias);
         textClienteNome = view.findViewById(R.id.textClienteNome);
         lbl_endereco_atual = view.findViewById(R.id.lbl_endereco_atual);
-
+        btnEnderecosMain = view.findViewById(R.id.btnEnderecosMain);
+        imgUpdateEndereco = view.findViewById(R.id.imgUpdateEndereco);
         if(!idEnderecoPadrao.equals("nulo")){
             reference = FirebaseDatabase.getInstance().getReference("enderecos").child(idEnderecoPadrao);
             reference.addValueEventListener(new ValueEventListener() {
@@ -129,6 +134,43 @@ public class PrincipalFragment extends Fragment {
                 Intent it = new Intent(getActivity(), LojaActivity.class);
                 it.putExtra("idHamburgueria", ham.getId());
                 startActivity(it);
+            }
+        });
+
+        btnEnderecosMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EnderecosActivity.class));
+            }
+        });
+        imgUpdateEndereco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sp = PreferenceManager.getDefaultSharedPreferences(getContext());
+                idEnderecoPadrao = sp.getString("padrao", "nulo");
+                if(!idEnderecoPadrao.equals("nulo")){
+                    reference = FirebaseDatabase.getInstance().getReference("enderecos").child(idEnderecoPadrao);
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            Endereco end = snapshot.getValue(Endereco.class);
+                            end.setId(snapshot.getKey());
+                            enderecoPadrao = end.toString();
+
+
+
+                            lbl_endereco_atual.setText(enderecoPadrao);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            System.out.println("The read failed: " + error.getCode());
+                        }
+                    });
+                }else{
+                    lbl_endereco_atual.setText("vazio");
+                }
             }
         });
     }

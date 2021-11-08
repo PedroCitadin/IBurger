@@ -1,5 +1,8 @@
 package com.example.iburguer.entity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Cliente {
 
     private String nome, sobrenome, cpf, email, telefone;
@@ -52,5 +55,18 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+
+    public static Map<String, Object> retornaMap(Cliente c){
+        Map<String, Object> map = new HashMap<>();
+        map.put("nome", c.getNome());
+        map.put("sobrenome", c.getSobrenome());
+        map.put("cpf", c.getCpf());
+        map.put("telefone", c.getTelefone());
+
+        return map;
+
+
     }
 }
