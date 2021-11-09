@@ -81,19 +81,20 @@ public class PrincipalFragment extends Fragment {
         lbl_endereco_atual = view.findViewById(R.id.lbl_endereco_atual);
         btnEnderecosMain = view.findViewById(R.id.btnEnderecosMain);
         imgUpdateEndereco = view.findViewById(R.id.imgUpdateEndereco);
+        System.out.println(idEnderecoPadrao);
         if(!idEnderecoPadrao.equals("nulo")){
             reference = FirebaseDatabase.getInstance().getReference("enderecos").child(idEnderecoPadrao);
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        Endereco end = snapshot.getValue(Endereco.class);
+                        end.setId(snapshot.getKey());
+                        enderecoPadrao = end.toString();
 
-                    Endereco end = snapshot.getValue(Endereco.class);
-                    end.setId(snapshot.getKey());
-                    enderecoPadrao = end.toString();
 
-
-
-                    lbl_endereco_atual.setText(enderecoPadrao);
+                        lbl_endereco_atual.setText(enderecoPadrao);
+                    }
                 }
 
                 @Override

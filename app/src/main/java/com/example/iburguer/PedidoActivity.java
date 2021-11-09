@@ -65,10 +65,14 @@ public class PedidoActivity extends AppCompatActivity {
                 enderecoReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot esnapshot) {
-                        Endereco end = esnapshot.getValue(Endereco.class);
-                        end.setId(esnapshot.getKey());
+                        if (esnapshot.exists()){
+                            Endereco end = esnapshot.getValue(Endereco.class);
+                            end.setId(esnapshot.getKey());
 
-                        txtEnderecoEntregaPedido.setText(end.toString());
+                            txtEnderecoEntregaPedido.setText(end.toString());
+                        }else{
+                            txtEnderecoEntregaPedido.setText("Endereço removido da base de dados");
+                        }
                     }
 
                     @Override

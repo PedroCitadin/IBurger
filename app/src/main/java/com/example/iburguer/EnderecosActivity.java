@@ -45,7 +45,7 @@ public class EnderecosActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //System.out.println(mAuth.getCurrentUser().getUid());
+                listaEnd.clear();
                 for(DataSnapshot obj: dataSnapshot.getChildren()){
                     Endereco end = obj.getValue(Endereco.class);
                     end.setId(obj.getKey());
@@ -69,7 +69,7 @@ public class EnderecosActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Endereco end = (Endereco) lista_enderecos.getItemAtPosition(position);
                 EnderecoDialog dialog = new EnderecoDialog(EnderecosActivity.this);
-                dialog.show(end, adapter, lista_enderecos);
+                dialog.show(end, adapter, lista_enderecos, position);
 
                 return true;
             }

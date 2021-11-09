@@ -17,6 +17,9 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.example.iburguer.R;
 import com.example.iburguer.entity.Endereco;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -33,7 +36,7 @@ public class EnderecoDialog {
         sp = PreferenceManager.getDefaultSharedPreferences(activity);
 
     }
-    public void show(Endereco end, ArrayAdapter<Endereco> adapter, ListView lista){
+    public void show(Endereco end, ArrayAdapter<Endereco> adapter, ListView lista, int position){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = activity.getLayoutInflater();
         View view =  inflater.inflate(R.layout.dialog_endereco, null);
@@ -54,11 +57,20 @@ public class EnderecoDialog {
         btnConfirmarExclusao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println(end.getId());
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseDatabase rootNode;
+                DatabaseReference reference, clienteReference;
+                rootNode = FirebaseDatabase.getInstance();
+                reference = rootNode.getReference("enderecos").child(end.getId());
+                reference.removeValue();
 
-
-
-                lista.setAdapter(adapter);
+                editor = sp.edit();
+                editor.putString("padrao", "nulo");
+                editor.apply();
                 dialog.cancel();
+
+
 
             }
         });

@@ -92,11 +92,10 @@ public class NovoEnderecoActivity extends AppCompatActivity implements AdapterVi
         enderecoReference = rootNode.getReference("enderecos").push();
         clienteReference = rootNode.getReference("clientes").child(endereco.getClienteId()).child("enderecos").push();
 
-        enderecoId = enderecoReference.getKey();
-        enderecoCliente = new EnderecoCliente(endereco.getRua(), endereco.getNumero(), endereco.getCidade(), enderecoId);
+
 
         enderecoReference.setValue(endereco);
-        clienteReference.setValue(enderecoCliente);
+
     }
 
 }
