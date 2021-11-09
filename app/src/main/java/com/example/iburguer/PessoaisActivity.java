@@ -70,12 +70,15 @@ public class PessoaisActivity extends AppCompatActivity {
                 clienteReference = rootNode.getReference("clientes").child(mAuth.getCurrentUser().getUid());
                 clienteReference.updateChildren(Cliente.retornaMap(cliente));
 
+
             }
         });
         btnEditCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+               finish();
+
+
             }
         });
 

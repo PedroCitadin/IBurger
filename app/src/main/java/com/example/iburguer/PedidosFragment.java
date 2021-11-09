@@ -1,9 +1,13 @@
 package com.example.iburguer;
 
+import static java.util.Collections.*;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.lang.ref.Reference;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class PedidosFragment extends Fragment {
@@ -31,6 +36,7 @@ public class PedidosFragment extends Fragment {
     private List<com.example.iburguer.Model.Pedido> lista_ped= new ArrayList<Pedido>();
     ArrayAdapter<com.example.iburguer.Model.Pedido> adapter;
     DatabaseReference reference;
+
 
     public PedidosFragment() {}
 
@@ -62,13 +68,18 @@ public class PedidosFragment extends Fragment {
         reference.orderByChild("clienteId").equalTo(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                lista_ped.clear();
                 for (DataSnapshot obj : snapshot.getChildren()){
                     Pedido ped = obj.getValue(Pedido.class);
+                    ped.setId(obj.getKey());
                     lista_ped.add(ped);
                 }
-                adapter = new ArrayAdapter<Pedido>(getActivity(), android.R.layout.simple_list_item_1, lista_ped);
-                lista_pedidos.setAdapter(adapter);
+                Collections.reverse(lista_ped);
 
+                if (getActivity()!=null) {
+                    adapter = new ArrayAdapter<Pedido>(getActivity(), android.R.layout.simple_list_item_1, lista_ped);
+                    lista_pedidos.setAdapter(adapter);
+                }
             }
 
             @Override
@@ -76,6 +87,14 @@ public class PedidosFragment extends Fragment {
 
             }
         });
-
+    lista_pedidos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Pedido ped = (Pedido) lista_pedidos.getItemAtPosition(position);
+            Intent intent = new Intent(getActivity(), PedidoActivity.class);
+            intent.putExtra("idpedido", ped.getId());
+            startActivity(intent);
+        }
+    });
     }
 }

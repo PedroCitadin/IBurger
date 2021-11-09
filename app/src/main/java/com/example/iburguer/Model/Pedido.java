@@ -1,14 +1,26 @@
 package com.example.iburguer.Model;
 
+import com.example.iburguer.entity.Cliente;
+
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Pedido {
-
+    private String id;
     private String clienteId, enderecoId, hamburgueriaId, situacao, pagamento;
     private float valorTotal;
     private List<Items_pedido> itensPedido;
     private String data_pedido;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Pedido() {
     }
@@ -91,5 +103,15 @@ public class Pedido {
     @Override
     public String toString() {
         return "R$ "+valorTotal+" - "+situacao+" - "+data_pedido;
+    }
+
+
+    public static Map<String, Object> retornaMap(Pedido ped){
+        Map<String, Object> map = new HashMap<>();
+        map.put("situacao", ped.getSituacao());
+
+        return map;
+
+
     }
 }

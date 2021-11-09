@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:id="@+id/btnVoltarPedido"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:background="@color/branco"
+
+                android:src="@drawable/ic_flecha_voltar"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblpedidostring"
+                        android:fontFamily="@font/roboto_negrito"
+                        android:textSize="26sp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="24dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/lblNomeHamburgueria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblpedidostring"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="24dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblprodutosstring"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="24dp"/>
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_gravity="center"
+                    android:layout_width="380dp"
+                    android:layout_height="130dp"
+                    tools:ignore="SpeakableTextPresentCheck">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        tools:ignore="ScrollViewSize,UselessLeaf">
+                        <ListView
+                            android:id="@+id/pedidoListaProdutos"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"/>
+                    </LinearLayout>
+
+                </ScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblvalortotstring"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="24dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="R$ 15,00"
+                        android:textSize="30sp"
+                        android:textColor="@color/vermelhoBack"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="24dp"
+                        android:id="@+id/txtValorTotalPedido"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblentregastring"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="24dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+
+                            android:layout_width="350dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+
+                            android:ellipsize="end"
+                            android:fontFamily="@font/roboto"
+                            android:singleLine="false"
+                            android:id="@+id/txtEnderecoEntregaPedido"
+                            android:text=""
+                            android:textColor="@color/vermelhoBack"
+                            android:textSize="18sp"
+                            tools:ignore="HardcodedText" />
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_marginTop="35dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lblpagamentostring"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="24dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="20sp"
+                            android:textColor="@color/vermelhoBack"
+                            android:fontFamily="@font/roboto"
+                            android:layout_marginStart="24dp"
+                            android:id="@+id/txtFormaPagamento"
+                            tools:ignore="HardcodedText" />
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_marginTop="35dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/situa_o"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/roboto"
+                        android:layout_marginStart="24dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="20sp"
+                            android:textColor="@color/vermelhoBack"
+                            android:fontFamily="@font/roboto"
+                            android:layout_marginStart="24dp"
+                            android:id="@+id/txtSituacaoPedido"
+                            tools:ignore="HardcodedText" />
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <Button
+                        android:visibility="invisible"
+                        android:layout_width="300dp"
+                        android:layout_height="70dp"
+                        android:backgroundTint="@color/branco"
+                        android:text="@string/finalizar_pedido"
+                        android:id="@+id/btnConfirmarRecebimentoPedido"
+                        android:textColor="@color/vermelhoBack"
+                        android:fontFamily="@font/roboto_negrito"
+                        android:textSize="20sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

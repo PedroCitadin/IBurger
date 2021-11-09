@@ -32,6 +32,7 @@
             android:windowSoftInputMode="adjustPan"
             android:name=".NovoEnderecoActivity" />
         <activity android:name=".PessoaisActivity"/>
+        <activity android:name=".PedidoActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

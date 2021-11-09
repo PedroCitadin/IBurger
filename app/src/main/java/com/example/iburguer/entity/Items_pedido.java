@@ -55,4 +55,14 @@ public class Items_pedido {
     public String toString() {
         return produto.getNome()+"\n"+quantidade;
     }
+
+
+    public static Items_pedido modelToStructure(com.example.iburguer.Model.Items_pedido items){
+        Items_pedido ip = new Items_pedido();
+        ip.setProduto(new Produto(items.getProdutoId()));
+        ip.setObservacao(items.getObsercavao());
+        ip.setQuantidade(items.getQuantidade());
+        return ip;
+
+    }
 }

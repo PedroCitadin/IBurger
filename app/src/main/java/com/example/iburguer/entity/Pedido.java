@@ -83,4 +83,20 @@ public class Pedido {
 
 
     }
+
+    public static String converteSituacao(com.example.iburguer.Model.Pedido ped){
+        String sit = "";
+        if (ped.getSituacao().equalsIgnoreCase("AGUARDANDO APROVACAO")){
+            return "Aguardando Aprovação";
+        }else if(ped.getSituacao().equalsIgnoreCase("EM PRODUCAO")){
+            return "Em Produção";
+        }else if(ped.getSituacao().equalsIgnoreCase("ENVIADO")){
+            return "Enviado";
+        }else if(ped.getSituacao().equalsIgnoreCase("FINALIZADO")){
+            return "Finalizado";
+        }
+
+
+        return sit;
+    }
 }
