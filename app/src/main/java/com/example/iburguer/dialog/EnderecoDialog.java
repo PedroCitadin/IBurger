@@ -38,7 +38,7 @@ public class EnderecoDialog {
         LayoutInflater inflater = activity.getLayoutInflater();
         View view =  inflater.inflate(R.layout.dialog_endereco, null);
         builder.setView(view);
-        builder.setCancelable(false);
+        builder.setCancelable(true);
         btnDefinePadrao = view.findViewById(R.id.btnDefinePadrao);
         btnConfirmarExclusao = view.findViewById(R.id.btnConfirmarExclusao);
         btnDefinePadrao.setOnClickListener(new View.OnClickListener() {

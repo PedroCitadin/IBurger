@@ -95,6 +95,8 @@
     <string name="dados_pessoais">Dados Pessoais</string>
     <string name="finalizar_pedido">Finalizar Pedido</string>
     <string name="situa_o">Situação:</string>
+    <string name="dados_de_login">Dados de Login</string>
+    <string name="crie_uma_nova_senha">Crie uma nova senha:</string>
 
 
 </resources>

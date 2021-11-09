@@ -69,4 +69,14 @@ public class Cliente {
 
 
     }
+
+    public static Map<String, Object> retornaMapEmail(Cliente c){
+        Map<String, Object> map = new HashMap<>();
+        map.put("email", c.getEmail());
+
+
+        return map;
+
+
+    }
 }
